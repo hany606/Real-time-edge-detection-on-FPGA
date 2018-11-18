@@ -1,12 +1,12 @@
 //This module is the implementation of the built-in VGA interface on the board
 module VGA(
-	input	clk,						// Clock of VGA 50 MHz
+	input	clk,				// Clock of VGA 50 MHz
 	input[2:0] pixel_rgb,		// Pixel RGB value
 
-	output hsync, vsync,			// Vertical and Horizontal synchronization signals
+	output hsync, vsync,		// Vertical and Horizontal synchronization signals
 	output red, green, blue,	// RGB VGA pins
-	output active,					// Active when pixel inside the 640 x 480 area
-	output ptick,					// Pixel clock 
+	output active,				// Active when pixel inside the 640 x 480 area
+	output ptick,				// Pixel clock 
 	output[9:0] xpos, ypos		// Current pixel position
 );
 
@@ -44,7 +44,7 @@ module VGA(
 	// Status signals
 	wire			h_end, v_end;
 
-	//
+	// Registers for restart signal
 	reg counter_reset = 1'b0;
 	reg reset = 1'b0;
 	
@@ -112,7 +112,6 @@ end
 	end
 
 	// Next-state logic of mod-525 vertical sync counter
-
 	always @(*) begin
 		if (ptick_w & h_end)	// 25 MHz pixel tick and end of line
 			if (v_end)	// Check if it is end of the monitor
@@ -122,8 +121,6 @@ end
 		else
 			vcount_next = vcount;
 	end
-
-	// Horizontal and vertical sync, and f_tick, buffered to avoid glitches
 	
 	// hsync_next reset between 656 and 752
 	assign	hsync_next = ~((hcount > h_front_porch) && (hcount <= h_sync_signal));
