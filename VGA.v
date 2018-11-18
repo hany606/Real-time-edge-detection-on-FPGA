@@ -58,36 +58,36 @@ module VGA(
 			reset <= 0;
 	end
 	
-always @ (posedge clk or posedge reset) begin
-	if  (reset) begin
-		mod2_r <= 1'b0;
-		
-		vcount <= 0;
-		hcount <= 0;
-		
-		vsync_r <= 1'b0;
-		hsync_r <= 1'b0;
-		
-		red_r <= 1'b0;
-		green_r <= 1'b0;
-		blue_r <= 1'b0;
-		
+	always @ (posedge clk or posedge reset) begin
+		if  (reset) begin
+			mod2_r <= 1'b0;
+			
+			vcount <= 0;
+			hcount <= 0;
+			
+			vsync_r <= 1'b0;
+			hsync_r <= 1'b0;
+			
+			red_r <= 1'b0;
+			green_r <= 1'b0;
+			blue_r <= 1'b0;
+			
+		end
+		else begin
+			mod2_r <= mod2_next;
+			
+			vcount <= vcount_next;
+			hcount <= hcount_next;
+			
+			vsync_r <= vsync_next;
+			hsync_r <= hsync_next;
+			
+			red_r <= pixel_rgb[0];
+			green_r <= pixel_rgb[1];
+			blue_r <= pixel_rgb[2];
+			
+		end
 	end
-	else begin
-		mod2_r <= mod2_next;
-		
-		vcount <= vcount_next;
-		hcount <= hcount_next;
-		
-		vsync_r <= vsync_next;
-		hsync_r <= hsync_next;
-		
-		red_r <= pixel_rgb[0];
-		green_r <= pixel_rgb[1];
-		blue_r <= pixel_rgb[2];
-		
-	end
-end
 
 	// Mod-2 circuit to generate the 25 MHz tick
 	assign mod2_next = ~mod2_r;
