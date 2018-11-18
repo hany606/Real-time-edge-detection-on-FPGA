@@ -1,0 +1,209 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -6.733
+TNS   : -445.929
+
+Type  : Slow 1200mV 85C Model Setup 'Camera:comb_4|p_valid'
+Slack : -6.433
+TNS   : -151.350
+
+Type  : Slow 1200mV 85C Model Setup 'VGA:comb_7|mod2_r'
+Slack : -5.147
+TNS   : -55.245
+
+Type  : Slow 1200mV 85C Model Setup 'cam_clock'
+Slack : -2.104
+TNS   : -13.671
+
+Type  : Slow 1200mV 85C Model Setup 'clk_50'
+Slack : -1.535
+TNS   : -20.333
+
+Type  : Slow 1200mV 85C Model Hold 'VGA:comb_7|mod2_r'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'cam_clock'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_50'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Camera:comb_4|p_valid'
+Slack : 0.466
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 3.602
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'clk_50'
+Slack : 16.827
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'clk_50'
+Slack : 1.150
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cam_clock'
+Slack : -3.000
+TNS   : -20.844
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Camera:comb_4|p_valid'
+Slack : -1.487
+TNS   : -60.967
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'VGA:comb_7|mod2_r'
+Slack : -1.487
+TNS   : -23.792
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50'
+Slack : 9.660
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.722
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -6.120
+TNS   : -400.519
+
+Type  : Slow 1200mV 0C Model Setup 'Camera:comb_4|p_valid'
+Slack : -5.817
+TNS   : -136.670
+
+Type  : Slow 1200mV 0C Model Setup 'VGA:comb_7|mod2_r'
+Slack : -4.669
+TNS   : -49.528
+
+Type  : Slow 1200mV 0C Model Setup 'cam_clock'
+Slack : -1.946
+TNS   : -11.943
+
+Type  : Slow 1200mV 0C Model Setup 'clk_50'
+Slack : -1.467
+TNS   : -18.991
+
+Type  : Slow 1200mV 0C Model Hold 'VGA:comb_7|mod2_r'
+Slack : 0.362
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'cam_clock'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_50'
+Slack : 0.404
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Camera:comb_4|p_valid'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 3.238
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'clk_50'
+Slack : 17.011
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'clk_50'
+Slack : 1.049
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cam_clock'
+Slack : -3.000
+TNS   : -20.844
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Camera:comb_4|p_valid'
+Slack : -1.487
+TNS   : -60.974
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'VGA:comb_7|mod2_r'
+Slack : -1.487
+TNS   : -23.792
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50'
+Slack : 9.668
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.723
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.610
+TNS   : -166.504
+
+Type  : Fast 1200mV 0C Model Setup 'Camera:comb_4|p_valid'
+Slack : -2.130
+TNS   : -41.791
+
+Type  : Fast 1200mV 0C Model Setup 'VGA:comb_7|mod2_r'
+Slack : -1.518
+TNS   : -14.741
+
+Type  : Fast 1200mV 0C Model Setup 'cam_clock'
+Slack : -0.401
+TNS   : -0.429
+
+Type  : Fast 1200mV 0C Model Setup 'clk_50'
+Slack : -0.144
+TNS   : -2.147
+
+Type  : Fast 1200mV 0C Model Hold 'VGA:comb_7|mod2_r'
+Slack : 0.176
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_50'
+Slack : 0.184
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'cam_clock'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Camera:comb_4|p_valid'
+Slack : 0.193
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.579
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'clk_50'
+Slack : 18.578
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clk_50'
+Slack : 0.505
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cam_clock'
+Slack : -3.000
+TNS   : -15.900
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Camera:comb_4|p_valid'
+Slack : -1.000
+TNS   : -41.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'VGA:comb_7|mod2_r'
+Slack : -1.000
+TNS   : -16.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50'
+Slack : 9.371
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comb_3|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.733
+TNS   : 0.000
+
+------------------------------------------------------------

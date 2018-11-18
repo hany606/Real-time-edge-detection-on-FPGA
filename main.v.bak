@@ -1,0 +1,262 @@
+module Edge_detection_project(
+	input			clk_50_in,					// 50 MHz / 20 ns
+
+	output		red, green, blue,		// VGA color outputs
+	output		hsync, vsync,			// VGA sync outputs
+	input cam_clock,
+	input cam_vsync,
+	input cam_href,
+	input [7:0] cam_data_wires,
+	input button,
+	output clk_25_custom
+	);
+	
+	//---------------------------Internal---------------------------
+	//--------------------------------------------------------------
+
+	//---------------------------Buffer---------------------------
+	reg [7:0]data_buffer_in_a = 0;
+	reg [14:0] read_addr_a = 0;
+	reg [14:0] write_addr_a = 0;
+	reg write_en_a = 0;
+	wire [7:0]outp_a;
+	wire error_write_a;
+	
+	
+	reg data_buffer_in_b = 0;
+	reg [14:0] read_addr_b = 0;
+	reg [14:0] write_addr_b =0 ;
+	reg write_en_b = 0;
+	wire outp_b;
+	wire error_write_b;
+	integer i,x; 
+
+	//------------------------------------------------------------
+	
+
+	//---------------------------VGA---------------------------
+	wire	[9:0]	hpos, vpos;				// Current pixel position ? why 10 ?
+	wire 			active;					// Active screen area flag
+	wire			pixel_tick;				// Pulse coming from the VGA generator when the pixel position is stable (25 MHz)
+	wire			frame_tick;				// Pulse coming from the VGA generator when entering into the blanking area (60 Hz)
+	reg	[0:2]	pixel;					// Current pixel RGB color  3 bits represent   and make it the opposite to make RGB not BGR
+	// Reset pulse
+	reg		counter_reset = 1'b0;
+	reg		reset = 1'b0;
+	//-------------------------CAMERA--------------------------------
+	wire pixel_valid;
+	wire [15:0] pixel_data;
+	wire frame_done;
+
+	reg[8:0] pixel_cam_counterv;
+	reg[9:0] pixel_cam_counterh;
+	//reg[2:0] counter_cam_trick_pixel = 0;
+	//-------------------------GRAY-----------------------------------
+	reg[7:0] gray_value;
+	reg[4:0] red_channel; 
+	reg[5:0] green_channel; 
+	reg[4:0] blue_channel;
+	
+	//------------------------Sobel------------------------------------
+	reg[7:0] i_sobel = 0;
+	reg[7:0] j_sobel = 0;
+	reg[3:0] counter_sobel = 0;
+	wire[7:0] out_sobel;
+	reg[7:0] p_sobel [8:0];
+	reg[14:0] target_sobel_addr = 0;
+	reg flag = 1;
+
+	
+	pll clk_25(clk_50_in, clk_25_custom);
+	
+	buffer4 b4(
+	.d_in_a(data_buffer_in_a),
+	.r_addr_a(read_addr_a),
+	.w_addr_a(write_addr_a),
+	.d_in_b(data_buffer_in_b),
+	.r_addr_b(read_addr_b),
+	.w_addr_b(write_addr_b),
+	.w_clk(clk_25_custom),
+	.r_clk(clk_50_in),
+	.w_en_a(write_en_a),
+	.d_out_a(outp_a),
+	.err_w_a(error_write_a),
+	.w_en_b(write_en_b),
+	.d_out_b(outp_b),
+	.err_w_b(error_write_b)
+	);
+	
+	
+	vga vga_gen(
+		.clk(clk_50_in),
+		.reset(reset),
+		.pixel_rgb(pixel),
+		
+		.hsync(hsync),
+		.vsync(vsync),
+		.red(red),
+		.green(green),
+		.blue(blue),
+		.active(active),
+		.ptick(pixel_tick),
+		.xpos(hpos),
+		.ypos(vpos),
+	);
+		
+	Camera cam(
+	.clock(cam_clock),
+	.vsync(cam_vsync),
+	.href(cam_href),
+	.data_wires(cam_data_wires),
+	.p_valid(pixel_valid),
+	.p_data(pixel_data),
+	.f_done(frame_done)
+   );
+	
+	core_sobel(
+	.p0(p_sobel[0]),
+	.p1(p_sobel[3]),
+	.p2(p_sobel[6]),
+	.p3(p_sobel[1]),
+	.p5(p_sobel[7]),
+	.p6(p_sobel[2]),
+	.p7(p_sobel[5]),
+	.p8(p_sobel[8]),
+	.out(out_sobel)
+	);
+
+	
+
+//testing---------------
+//	always @(posedge clk_25_custom) begin
+//		write_en <= 1;
+//				data_buffer_in <= 3'b101;
+//				write_addr <= 1;
+//	end
+//---------------------------
+	// Generate a reset pulse
+	always @(posedge clk_50_in) begin
+		if (~counter_reset) begin
+			counter_reset <= 1'b1;
+			reset <= 1'b1;
+		end
+		else
+			reset <= 0;
+	end
+	
+	
+	always @(negedge clk_50_in)begin
+		if (counter_sobel <= 'd8) begin
+			case (counter_sobel%'d3)
+				0: read_addr_a = i_sobel + j_sobel*'d150;
+				1: read_addr_a = i_sobel + j_sobel*'d150 +'d150;
+				2: 
+				begin
+					read_addr_a = i_sobel + j_sobel*'d150 + 'd300;
+					if(i_sobel == 'd149) 
+					begin
+						j_sobel = j_sobel + 'd1;
+					end  
+					i_sobel = (i_sobel+'d1)%'d150;
+				end
+			endcase
+			if(counter_sobel == 'd4)
+				target_sobel_addr = read_addr_a;
+			p_sobel[counter_sobel] = outp_a;
+			counter_sobel = counter_sobel + 'd1;
+		end
+		else begin
+			counter_sobel = 0;
+			if(i_sobel >= 'd2)
+				i_sobel = i_sobel - 'd2;
+			//write
+						
+			if(out_sobel < 'd70)
+            data_buffer_in_b = 1'b1;
+        else
+				data_buffer_in_b = 1'b0;
+			write_en_b = 1;
+			write_addr_b= target_sobel_addr;
+
+			//data_buffer_in_b = ((out_sobel)<'d100 ? 1:0);
+			if(j_sobel == 'd147) 
+			begin
+				i_sobel = 0;
+				j_sobel = 0;
+			end
+		end
+		
+		
+		
+	end
+	
+	/*
+	always @(posedge clk_50_in && flag == 1)
+	begin
+			write_en_b = 1;
+			write_addr_b= write_addr_b + 1;
+			data_buffer_in_b = 1'b1;
+			if(write_addr_b == 'd22499)
+				flag = 0;
+	end
+	
+	*/
+	
+	always @(posedge pixel_tick) begin
+		if (! active)
+			pixel <= 3'b0;
+		else begin
+			if(vpos < 'd150 && vpos >= 0 && hpos < 'd150 && hpos >= 0)
+			begin
+			
+				i = vpos[7:0];
+				x = hpos[7:0];
+				read_addr_b = i* 'd150 +x;
+//				read_addr = 1;
+				pixel <= (outp_b==1?3'b111:3'b000);
+			end
+			else
+				pixel <= 3'b000;
+			
+		end
+	end
+	
+	always @(posedge pixel_valid) 
+	begin
+	if(button == 1)
+	begin
+//				write_en <= 1;
+//			data_buffer_in <= 3'b111;
+////			write_addr <= pixel_cam_counterv*100+pixel_cam_counterh;
+//			write_addr <= 1;
+		red_channel =	pixel_data[4:0];
+		green_channel = pixel_data[10:5];
+		blue_channel = pixel_data[15:11];
+		gray_value = (red_channel >> 2) + (red_channel >> 5)+ (green_channel >> 4) + (green_channel >> 1) + (blue_channel >> 4) + (blue_channel >> 5);
+		
+		//data_buffer_in_a <= (gray_value >=  20? 3'b111: 3'b000);
+		
+		data_buffer_in_a = gray_value;
+		
+//		data_buffer_in[0] <= pixel_data[4];
+//		data_buffer_in[1] <= pixel_data[10];
+//		data_buffer_in[2] <= pixel_data[15];
+		//		if(gray_value >= 7'd127)
+//			data_buffer_in = 3'b111;
+//		else
+//			data_buffer_in = 3'b000;
+
+		if(pixel_cam_counterv < 'd150 && pixel_cam_counterh < 'd150 )
+		begin
+			write_en_a = 1;
+			write_addr_a = pixel_cam_counterv* 'd150 +pixel_cam_counterh;
+//			write_addr <= 1;
+		end
+
+		pixel_cam_counterv= ((pixel_cam_counterh == 'd639)?((pixel_cam_counterv+'d1)%'d480):pixel_cam_counterv);		
+		pixel_cam_counterh= (pixel_cam_counterh+'d1)%'d640;
+	end
+	
+end
+
+endmodule

@@ -1,0 +1,1587 @@
+Analysis & Synthesis report for Edge_detection_project
+Sun Nov 18 13:21:17 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis RAM Summary
+  8. Analysis & Synthesis IP Cores Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for Buffer:comb_5|altsyncram:data_b_rtl_0|altsyncram_g5h1:auto_generated
+ 14. Source assignments for Buffer:comb_5|altsyncram:data_a_rtl_0|altsyncram_umk1:auto_generated
+ 15. Parameter Settings for User Entity Instance: pll:comb_3|altpll:altpll_component
+ 16. Parameter Settings for Inferred Entity Instance: Buffer:comb_5|altsyncram:data_b_rtl_0
+ 17. Parameter Settings for Inferred Entity Instance: Buffer:comb_5|altsyncram:data_a_rtl_0
+ 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 19. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult2
+ 20. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
+ 22. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1
+ 23. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 24. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 25. altpll Parameter Settings by Entity Instance
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. lpm_mult Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "VGA:comb_7"
+ 29. Port Connectivity Checks: "Buffer:comb_5"
+ 30. Port Connectivity Checks: "Camera:comb_4"
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
+ 34. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Nov 18 13:21:17 2018       ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                      ; Edge_detection_project                      ;
+; Top-level Entity Name              ; Edge_detection_project                      ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 745                                         ;
+;     Total combinational functions  ; 631                                         ;
+;     Dedicated logic registers      ; 242                                         ;
+; Total registers                    ; 242                                         ;
+; Total pins                         ; 19                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 202,500                                     ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 1                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                ;
++----------------------------------------------------------------------------+------------------------+------------------------+
+; Option                                                                     ; Setting                ; Default Value          ;
++----------------------------------------------------------------------------+------------------------+------------------------+
+; Device                                                                     ; EP4CE6E22C8            ;                        ;
+; Top-level entity name                                                      ; Edge_detection_project ; Edge_detection_project ;
+; Family name                                                                ; Cyclone IV E           ; Cyclone V              ;
+; Use smart compilation                                                      ; Off                    ; Off                    ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                     ; On                     ;
+; Enable compact report table                                                ; Off                    ; Off                    ;
+; Restructure Multiplexers                                                   ; Auto                   ; Auto                   ;
+; Create Debugging Nodes for IP Cores                                        ; Off                    ; Off                    ;
+; Preserve fewer node names                                                  ; On                     ; On                     ;
+; Intel FPGA IP Evaluation Mode                                              ; Enable                 ; Enable                 ;
+; Verilog Version                                                            ; Verilog_2001           ; Verilog_2001           ;
+; VHDL Version                                                               ; VHDL_1993              ; VHDL_1993              ;
+; State Machine Processing                                                   ; Auto                   ; Auto                   ;
+; Safe State Machine                                                         ; Off                    ; Off                    ;
+; Extract Verilog State Machines                                             ; On                     ; On                     ;
+; Extract VHDL State Machines                                                ; On                     ; On                     ;
+; Ignore Verilog initial constructs                                          ; Off                    ; Off                    ;
+; Iteration limit for constant Verilog loops                                 ; 5000                   ; 5000                   ;
+; Iteration limit for non-constant Verilog loops                             ; 250                    ; 250                    ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                     ; On                     ;
+; Infer RAMs from Raw Logic                                                  ; On                     ; On                     ;
+; Parallel Synthesis                                                         ; On                     ; On                     ;
+; DSP Block Balancing                                                        ; Auto                   ; Auto                   ;
+; NOT Gate Push-Back                                                         ; On                     ; On                     ;
+; Power-Up Don't Care                                                        ; On                     ; On                     ;
+; Remove Redundant Logic Cells                                               ; Off                    ; Off                    ;
+; Remove Duplicate Registers                                                 ; On                     ; On                     ;
+; Ignore CARRY Buffers                                                       ; Off                    ; Off                    ;
+; Ignore CASCADE Buffers                                                     ; Off                    ; Off                    ;
+; Ignore GLOBAL Buffers                                                      ; Off                    ; Off                    ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                    ; Off                    ;
+; Ignore LCELL Buffers                                                       ; Off                    ; Off                    ;
+; Ignore SOFT Buffers                                                        ; On                     ; On                     ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                    ; Off                    ;
+; Optimization Technique                                                     ; Balanced               ; Balanced               ;
+; Carry Chain Length                                                         ; 70                     ; 70                     ;
+; Auto Carry Chains                                                          ; On                     ; On                     ;
+; Auto Open-Drain Pins                                                       ; On                     ; On                     ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                    ; Off                    ;
+; Auto ROM Replacement                                                       ; On                     ; On                     ;
+; Auto RAM Replacement                                                       ; On                     ; On                     ;
+; Auto DSP Block Replacement                                                 ; On                     ; On                     ;
+; Auto Shift Register Replacement                                            ; Auto                   ; Auto                   ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                   ; Auto                   ;
+; Auto Clock Enable Replacement                                              ; On                     ; On                     ;
+; Strict RAM Replacement                                                     ; Off                    ; Off                    ;
+; Allow Synchronous Control Signals                                          ; On                     ; On                     ;
+; Force Use of Synchronous Clear Signals                                     ; Off                    ; Off                    ;
+; Auto RAM Block Balancing                                                   ; On                     ; On                     ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                    ; Off                    ;
+; Auto Resource Sharing                                                      ; Off                    ; Off                    ;
+; Allow Any RAM Size For Recognition                                         ; Off                    ; Off                    ;
+; Allow Any ROM Size For Recognition                                         ; Off                    ; Off                    ;
+; Allow Any Shift Register Size For Recognition                              ; Off                    ; Off                    ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                     ; On                     ;
+; Ignore translate_off and synthesis_off directives                          ; Off                    ; Off                    ;
+; Timing-Driven Synthesis                                                    ; On                     ; On                     ;
+; Report Parameter Settings                                                  ; On                     ; On                     ;
+; Report Source Assignments                                                  ; On                     ; On                     ;
+; Report Connectivity Checks                                                 ; On                     ; On                     ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                    ; Off                    ;
+; Synchronization Register Chain Length                                      ; 2                      ; 2                      ;
+; Power Optimization During Synthesis                                        ; Normal compilation     ; Normal compilation     ;
+; HDL message level                                                          ; Level2                 ; Level2                 ;
+; Suppress Register Optimization Related Messages                            ; Off                    ; Off                    ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                   ; 5000                   ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                   ; 5000                   ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                    ; 100                    ;
+; Clock MUX Protection                                                       ; On                     ; On                     ;
+; Auto Gated Clock Conversion                                                ; Off                    ; Off                    ;
+; Block Design Naming                                                        ; Auto                   ; Auto                   ;
+; SDC constraint protection                                                  ; Off                    ; Off                    ;
+; Synthesis Effort                                                           ; Auto                   ; Auto                   ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                     ; On                     ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                    ; Off                    ;
+; Analysis & Synthesis Message Level                                         ; Medium                 ; Medium                 ;
+; Disable Register Merging Across Hierarchies                                ; Auto                   ; Auto                   ;
+; Resource Aware Inference For Block RAM                                     ; On                     ; On                     ;
++----------------------------------------------------------------------------+------------------------+------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                              ;
++--------------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                       ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                           ; Library ;
++--------------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------+---------+
+; main.v                                                 ; yes             ; User Verilog HDL File                                 ; /home/user/Documents/CA_project/main.v                                                 ;         ;
+; Buffer.v                                               ; yes             ; User Verilog HDL File                                 ; /home/user/Documents/CA_project/Buffer.v                                               ;         ;
+; pll.v                                                  ; yes             ; User Wizard-Generated File                            ; /home/user/Documents/CA_project/pll.v                                                  ;         ;
+; VGA.v                                                  ; yes             ; User Verilog HDL File                                 ; /home/user/Documents/CA_project/VGA.v                                                  ;         ;
+; core_sobel.v                                           ; yes             ; User Verilog HDL File                                 ; /home/user/Documents/CA_project/core_sobel.v                                           ;         ;
+; Camera.v                                               ; yes             ; User Verilog HDL File                                 ; /home/user/Documents/CA_project/Camera.v                                               ;         ;
+; altpll.tdf                                             ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altpll.tdf              ;         ;
+; aglobal171.inc                                         ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc          ;         ;
+; stratix_pll.inc                                        ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/stratix_pll.inc         ;         ;
+; stratixii_pll.inc                                      ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/stratixii_pll.inc       ;         ;
+; cycloneii_pll.inc                                      ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/cycloneii_pll.inc       ;         ;
+; db/pll_altpll.v                                        ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/pll_altpll.v                                        ;         ;
+; altsyncram.tdf                                         ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altsyncram.tdf          ;         ;
+; stratix_ram_block.inc                                  ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/stratix_ram_block.inc   ;         ;
+; lpm_mux.inc                                            ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_mux.inc             ;         ;
+; lpm_decode.inc                                         ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
+; a_rdenreg.inc                                          ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/a_rdenreg.inc           ;         ;
+; altrom.inc                                             ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altrom.inc              ;         ;
+; altram.inc                                             ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altram.inc              ;         ;
+; altdpram.inc                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altdpram.inc            ;         ;
+; db/altsyncram_g5h1.tdf                                 ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/altsyncram_g5h1.tdf                                 ;         ;
+; db/decode_lsa.tdf                                      ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/decode_lsa.tdf                                      ;         ;
+; db/mux_umb.tdf                                         ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/mux_umb.tdf                                         ;         ;
+; db/altsyncram_umk1.tdf                                 ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/altsyncram_umk1.tdf                                 ;         ;
+; db/Edge_detection_project.ram0_Buffer_8d723586.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/user/Documents/CA_project/db/Edge_detection_project.ram0_Buffer_8d723586.hdl.mif ;         ;
+; db/decode_e8a.tdf                                      ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/decode_e8a.tdf                                      ;         ;
+; db/mux_5nb.tdf                                         ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/mux_5nb.tdf                                         ;         ;
+; lpm_divide.tdf                                         ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf          ;         ;
+; abs_divider.inc                                        ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc         ;         ;
+; sign_div_unsign.inc                                    ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc     ;         ;
+; db/lpm_divide_g9m.tdf                                  ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/lpm_divide_g9m.tdf                                  ;         ;
+; db/sign_div_unsign_5kh.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/sign_div_unsign_5kh.tdf                             ;         ;
+; db/alt_u_div_u3f.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/alt_u_div_u3f.tdf                                   ;         ;
+; db/add_sub_7pc.tdf                                     ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/add_sub_7pc.tdf                                     ;         ;
+; db/add_sub_8pc.tdf                                     ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/add_sub_8pc.tdf                                     ;         ;
+; lpm_mult.tdf                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf            ;         ;
+; lpm_add_sub.inc                                        ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_add_sub.inc         ;         ;
+; multcore.inc                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/multcore.inc            ;         ;
+; bypassff.inc                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/bypassff.inc            ;         ;
+; altshift.inc                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altshift.inc            ;         ;
+; multcore.tdf                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/multcore.tdf            ;         ;
+; csa_add.inc                                            ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/csa_add.inc             ;         ;
+; mpar_add.inc                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/mpar_add.inc            ;         ;
+; muleabz.inc                                            ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/muleabz.inc             ;         ;
+; mul_lfrg.inc                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/mul_lfrg.inc            ;         ;
+; mul_boothc.inc                                         ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/mul_boothc.inc          ;         ;
+; alt_ded_mult.inc                                       ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/alt_ded_mult.inc        ;         ;
+; alt_ded_mult_y.inc                                     ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc      ;         ;
+; dffpipe.inc                                            ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/dffpipe.inc             ;         ;
+; mpar_add.tdf                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/mpar_add.tdf            ;         ;
+; lpm_add_sub.tdf                                        ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
+; addcore.inc                                            ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/addcore.inc             ;         ;
+; look_add.inc                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/look_add.inc            ;         ;
+; alt_stratix_add_sub.inc                                ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;         ;
+; db/add_sub_lgh.tdf                                     ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/add_sub_lgh.tdf                                     ;         ;
+; altshift.tdf                                           ; yes             ; Megafunction                                          ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altshift.tdf            ;         ;
+; db/add_sub_pgh.tdf                                     ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/add_sub_pgh.tdf                                     ;         ;
+; db/lpm_divide_r9m.tdf                                  ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/lpm_divide_r9m.tdf                                  ;         ;
+; db/sign_div_unsign_gkh.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/sign_div_unsign_gkh.tdf                             ;         ;
+; db/alt_u_div_k4f.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/alt_u_div_k4f.tdf                                   ;         ;
+; db/lpm_divide_dcm.tdf                                  ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/lpm_divide_dcm.tdf                                  ;         ;
+; db/sign_div_unsign_2nh.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/sign_div_unsign_2nh.tdf                             ;         ;
+; db/alt_u_div_o9f.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/alt_u_div_o9f.tdf                                   ;         ;
+; db/lpm_divide_4bm.tdf                                  ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/lpm_divide_4bm.tdf                                  ;         ;
+; db/sign_div_unsign_plh.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/sign_div_unsign_plh.tdf                             ;         ;
+; db/alt_u_div_67f.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; /home/user/Documents/CA_project/db/alt_u_div_67f.tdf                                   ;         ;
++--------------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 745          ;
+;                                             ;              ;
+; Total combinational functions               ; 631          ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 153          ;
+;     -- 3 input functions                    ; 238          ;
+;     -- <=2 input functions                  ; 240          ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 318          ;
+;     -- arithmetic mode                      ; 313          ;
+;                                             ;              ;
+; Total registers                             ; 242          ;
+;     -- Dedicated logic registers            ; 242          ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 19           ;
+; Total memory bits                           ; 202500       ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Total PLLs                                  ; 1            ;
+;     -- PLLs                                 ; 1            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_50~input ;
+; Maximum fan-out                             ; 201          ;
+; Total fan-out                               ; 3353         ;
+; Average fan-out                             ; 3.57         ;
++---------------------------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                            ; Entity Name            ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
+; |Edge_detection_project                        ; 631 (219)           ; 242 (188)                 ; 202500      ; 0            ; 0       ; 0         ; 19   ; 0            ; |Edge_detection_project                                                                                                                        ; Edge_detection_project ; work         ;
+;    |Buffer:comb_5|                             ; 28 (0)              ; 16 (8)                    ; 202500      ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5                                                                                                          ; Buffer                 ; work         ;
+;       |altsyncram:data_a_rtl_0|                ; 25 (0)              ; 6 (0)                     ; 180000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5|altsyncram:data_a_rtl_0                                                                                  ; altsyncram             ; work         ;
+;          |altsyncram_umk1:auto_generated|      ; 25 (3)              ; 6 (6)                     ; 180000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5|altsyncram:data_a_rtl_0|altsyncram_umk1:auto_generated                                                   ; altsyncram_umk1        ; work         ;
+;             |decode_e8a:rden_decode_b|         ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5|altsyncram:data_a_rtl_0|altsyncram_umk1:auto_generated|decode_e8a:rden_decode_b                          ; decode_e8a             ; work         ;
+;             |decode_lsa:decode2|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5|altsyncram:data_a_rtl_0|altsyncram_umk1:auto_generated|decode_lsa:decode2                                ; decode_lsa             ; work         ;
+;             |mux_5nb:mux3|                     ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5|altsyncram:data_a_rtl_0|altsyncram_umk1:auto_generated|mux_5nb:mux3                                      ; mux_5nb                ; work         ;
+;       |altsyncram:data_b_rtl_0|                ; 3 (0)               ; 2 (0)                     ; 22500       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5|altsyncram:data_b_rtl_0                                                                                  ; altsyncram             ; work         ;
+;          |altsyncram_g5h1:auto_generated|      ; 3 (0)               ; 2 (2)                     ; 22500       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5|altsyncram:data_b_rtl_0|altsyncram_g5h1:auto_generated                                                   ; altsyncram_g5h1        ; work         ;
+;             |decode_lsa:decode2|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Buffer:comb_5|altsyncram:data_b_rtl_0|altsyncram_g5h1:auto_generated|decode_lsa:decode2                                ; decode_lsa             ; work         ;
+;    |Camera:comb_4|                             ; 5 (5)               ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|Camera:comb_4                                                                                                          ; Camera                 ; work         ;
+;    |VGA:comb_7|                                ; 42 (42)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|VGA:comb_7                                                                                                             ; VGA                    ; work         ;
+;    |core_sobel:comb_6|                         ; 149 (149)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|core_sobel:comb_6                                                                                                      ; core_sobel             ; work         ;
+;    |lpm_divide:Mod0|                           ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod0                                                                                                        ; lpm_divide             ; work         ;
+;       |lpm_divide_4bm:auto_generated|          ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod0|lpm_divide_4bm:auto_generated                                                                          ; lpm_divide_4bm         ; work         ;
+;          |sign_div_unsign_plh:divider|         ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod0|lpm_divide_4bm:auto_generated|sign_div_unsign_plh:divider                                              ; sign_div_unsign_plh    ; work         ;
+;             |alt_u_div_67f:divider|            ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod0|lpm_divide_4bm:auto_generated|sign_div_unsign_plh:divider|alt_u_div_67f:divider                        ; alt_u_div_67f          ; work         ;
+;    |lpm_divide:Mod1|                           ; 20 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod1                                                                                                        ; lpm_divide             ; work         ;
+;       |lpm_divide_dcm:auto_generated|          ; 20 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod1|lpm_divide_dcm:auto_generated                                                                          ; lpm_divide_dcm         ; work         ;
+;          |sign_div_unsign_2nh:divider|         ; 20 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod1|lpm_divide_dcm:auto_generated|sign_div_unsign_2nh:divider                                              ; sign_div_unsign_2nh    ; work         ;
+;             |alt_u_div_o9f:divider|            ; 20 (20)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod1|lpm_divide_dcm:auto_generated|sign_div_unsign_2nh:divider|alt_u_div_o9f:divider                        ; alt_u_div_o9f          ; work         ;
+;    |lpm_divide:Mod2|                           ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod2                                                                                                        ; lpm_divide             ; work         ;
+;       |lpm_divide_g9m:auto_generated|          ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod2|lpm_divide_g9m:auto_generated                                                                          ; lpm_divide_g9m         ; work         ;
+;          |sign_div_unsign_5kh:divider|         ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod2|lpm_divide_g9m:auto_generated|sign_div_unsign_5kh:divider                                              ; sign_div_unsign_5kh    ; work         ;
+;             |alt_u_div_u3f:divider|            ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod2|lpm_divide_g9m:auto_generated|sign_div_unsign_5kh:divider|alt_u_div_u3f:divider                        ; alt_u_div_u3f          ; work         ;
+;    |lpm_divide:Mod3|                           ; 34 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod3                                                                                                        ; lpm_divide             ; work         ;
+;       |lpm_divide_r9m:auto_generated|          ; 34 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod3|lpm_divide_r9m:auto_generated                                                                          ; lpm_divide_r9m         ; work         ;
+;          |sign_div_unsign_gkh:divider|         ; 34 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod3|lpm_divide_r9m:auto_generated|sign_div_unsign_gkh:divider                                              ; sign_div_unsign_gkh    ; work         ;
+;             |alt_u_div_k4f:divider|            ; 34 (34)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_divide:Mod3|lpm_divide_r9m:auto_generated|sign_div_unsign_gkh:divider|alt_u_div_k4f:divider                        ; alt_u_div_k4f          ; work         ;
+;    |lpm_mult:Mult0|                            ; 35 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult0                                                                                                         ; lpm_mult               ; work         ;
+;       |multcore:mult_core|                     ; 35 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult0|multcore:mult_core                                                                                      ; multcore               ; work         ;
+;          |mpar_add:padder|                     ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add               ; work         ;
+;             |lpm_add_sub:adder[0]|             ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                                 ; lpm_add_sub            ; work         ;
+;                |add_sub_lgh:auto_generated|    ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated                      ; add_sub_lgh            ; work         ;
+;             |mpar_add:sub_par_add|             ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add                                                 ; mpar_add               ; work         ;
+;                |lpm_add_sub:adder[0]|          ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]                            ; lpm_add_sub            ; work         ;
+;                   |add_sub_pgh:auto_generated| ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]|add_sub_pgh:auto_generated ; add_sub_pgh            ; work         ;
+;    |lpm_mult:Mult1|                            ; 29 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult1                                                                                                         ; lpm_mult               ; work         ;
+;       |multcore:mult_core|                     ; 29 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult1|multcore:mult_core                                                                                      ; multcore               ; work         ;
+;          |mpar_add:padder|                     ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add               ; work         ;
+;             |lpm_add_sub:adder[0]|             ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                                 ; lpm_add_sub            ; work         ;
+;                |add_sub_lgh:auto_generated|    ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult1|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated                      ; add_sub_lgh            ; work         ;
+;    |lpm_mult:Mult2|                            ; 29 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult2                                                                                                         ; lpm_mult               ; work         ;
+;       |multcore:mult_core|                     ; 29 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult2|multcore:mult_core                                                                                      ; multcore               ; work         ;
+;          |mpar_add:padder|                     ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add               ; work         ;
+;             |lpm_add_sub:adder[0]|             ; 10 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                                 ; lpm_add_sub            ; work         ;
+;                |add_sub_lgh:auto_generated|    ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated                      ; add_sub_lgh            ; work         ;
+;    |pll:comb_3|                                ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|pll:comb_3                                                                                                             ; pll                    ; work         ;
+;       |altpll:altpll_component|                ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|pll:comb_3|altpll:altpll_component                                                                                     ; altpll                 ; work         ;
+;          |pll_altpll:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Edge_detection_project|pll:comb_3|altpll:altpll_component|pll_altpll:auto_generated                                                           ; pll_altpll             ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                        ;
++---------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+--------------------------------------------------------+
+; Name                                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF                                                    ;
++---------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+--------------------------------------------------------+
+; Buffer:comb_5|altsyncram:data_a_rtl_0|altsyncram_umk1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 22500        ; 8            ; 22500        ; 8            ; 180000 ; db/Edge_detection_project.ram0_Buffer_8d723586.hdl.mif ;
+; Buffer:comb_5|altsyncram:data_b_rtl_0|altsyncram_g5h1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 22500        ; 1            ; 22500        ; 1            ; 22500  ; None                                                   ;
++---------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+--------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                ;
++--------+--------------+---------+--------------+--------------+------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                    ; IP Include File ;
++--------+--------------+---------+--------------+--------------+------------------------------------+-----------------+
+; Altera ; ALTPLL       ; 17.1    ; N/A          ; N/A          ; |Edge_detection_project|pll:comb_3 ; pll.v           ;
++--------+--------------+---------+--------------+--------------+------------------------------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; data_buffer_in_a[6,7]                 ; Stuck at GND due to stuck port data_in ;
+; VGA:comb_7|green_r                    ; Merged with VGA:comb_7|blue_r          ;
+; VGA:comb_7|red_r                      ; Merged with VGA:comb_7|blue_r          ;
+; pixel_VGA_RGB[1,2]                    ; Merged with pixel_VGA_RGB[0]           ;
+; Total Number of Removed Registers = 6 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 242   ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 24    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 214   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions              ;
++-----------------------+----------------------------+------+
+; Register Name         ; Megafunction               ; Type ;
++-----------------------+----------------------------+------+
+; Buffer:comb_5|d_out_b ; Buffer:comb_5|data_b_rtl_0 ; RAM  ;
++-----------------------+----------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |Edge_detection_project|i_sobel[7] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Edge_detection_project|j_sobel[2] ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |Edge_detection_project|Mux12      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for Buffer:comb_5|altsyncram:data_b_rtl_0|altsyncram_g5h1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Source assignments for Buffer:comb_5|altsyncram:data_a_rtl_0|altsyncram_umk1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------+
+; Assignment                      ; Value              ; From ; To                            ;
++---------------------------------+--------------------+------+-------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                             ;
++---------------------------------+--------------------+------+-------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pll:comb_3|altpll:altpll_component ;
++-------------------------------+-----------------------+-------------------------+
+; Parameter Name                ; Value                 ; Type                    ;
++-------------------------------+-----------------------+-------------------------+
+; OPERATION_MODE                ; NORMAL                ; Untyped                 ;
+; PLL_TYPE                      ; AUTO                  ; Untyped                 ;
+; LPM_HINT                      ; CBX_MODULE_PREFIX=pll ; Untyped                 ;
+; QUALIFY_CONF_DONE             ; OFF                   ; Untyped                 ;
+; COMPENSATE_CLOCK              ; CLK0                  ; Untyped                 ;
+; SCAN_CHAIN                    ; LONG                  ; Untyped                 ;
+; PRIMARY_CLOCK                 ; INCLK0                ; Untyped                 ;
+; INCLK0_INPUT_FREQUENCY        ; 20000                 ; Signed Integer          ;
+; INCLK1_INPUT_FREQUENCY        ; 0                     ; Untyped                 ;
+; GATE_LOCK_SIGNAL              ; NO                    ; Untyped                 ;
+; GATE_LOCK_COUNTER             ; 0                     ; Untyped                 ;
+; LOCK_HIGH                     ; 1                     ; Untyped                 ;
+; LOCK_LOW                      ; 1                     ; Untyped                 ;
+; VALID_LOCK_MULTIPLIER         ; 1                     ; Untyped                 ;
+; INVALID_LOCK_MULTIPLIER       ; 5                     ; Untyped                 ;
+; SWITCH_OVER_ON_LOSSCLK        ; OFF                   ; Untyped                 ;
+; SWITCH_OVER_ON_GATED_LOCK     ; OFF                   ; Untyped                 ;
+; ENABLE_SWITCH_OVER_COUNTER    ; OFF                   ; Untyped                 ;
+; SKIP_VCO                      ; OFF                   ; Untyped                 ;
+; SWITCH_OVER_COUNTER           ; 0                     ; Untyped                 ;
+; SWITCH_OVER_TYPE              ; AUTO                  ; Untyped                 ;
+; FEEDBACK_SOURCE               ; EXTCLK0               ; Untyped                 ;
+; BANDWIDTH                     ; 0                     ; Untyped                 ;
+; BANDWIDTH_TYPE                ; AUTO                  ; Untyped                 ;
+; SPREAD_FREQUENCY              ; 0                     ; Untyped                 ;
+; DOWN_SPREAD                   ; 0                     ; Untyped                 ;
+; SELF_RESET_ON_GATED_LOSS_LOCK ; OFF                   ; Untyped                 ;
+; SELF_RESET_ON_LOSS_LOCK       ; OFF                   ; Untyped                 ;
+; CLK9_MULTIPLY_BY              ; 0                     ; Untyped                 ;
+; CLK8_MULTIPLY_BY              ; 0                     ; Untyped                 ;
+; CLK7_MULTIPLY_BY              ; 0                     ; Untyped                 ;
+; CLK6_MULTIPLY_BY              ; 0                     ; Untyped                 ;
+; CLK5_MULTIPLY_BY              ; 1                     ; Untyped                 ;
+; CLK4_MULTIPLY_BY              ; 1                     ; Untyped                 ;
+; CLK3_MULTIPLY_BY              ; 1                     ; Untyped                 ;
+; CLK2_MULTIPLY_BY              ; 1                     ; Untyped                 ;
+; CLK1_MULTIPLY_BY              ; 1                     ; Untyped                 ;
+; CLK0_MULTIPLY_BY              ; 1                     ; Signed Integer          ;
+; CLK9_DIVIDE_BY                ; 0                     ; Untyped                 ;
+; CLK8_DIVIDE_BY                ; 0                     ; Untyped                 ;
+; CLK7_DIVIDE_BY                ; 0                     ; Untyped                 ;
+; CLK6_DIVIDE_BY                ; 0                     ; Untyped                 ;
+; CLK5_DIVIDE_BY                ; 1                     ; Untyped                 ;
+; CLK4_DIVIDE_BY                ; 1                     ; Untyped                 ;
+; CLK3_DIVIDE_BY                ; 1                     ; Untyped                 ;
+; CLK2_DIVIDE_BY                ; 1                     ; Untyped                 ;
+; CLK1_DIVIDE_BY                ; 1                     ; Untyped                 ;
+; CLK0_DIVIDE_BY                ; 2                     ; Signed Integer          ;
+; CLK9_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK8_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK7_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK6_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK5_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK4_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK3_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK2_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK1_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK0_PHASE_SHIFT              ; 0                     ; Untyped                 ;
+; CLK5_TIME_DELAY               ; 0                     ; Untyped                 ;
+; CLK4_TIME_DELAY               ; 0                     ; Untyped                 ;
+; CLK3_TIME_DELAY               ; 0                     ; Untyped                 ;
+; CLK2_TIME_DELAY               ; 0                     ; Untyped                 ;
+; CLK1_TIME_DELAY               ; 0                     ; Untyped                 ;
+; CLK0_TIME_DELAY               ; 0                     ; Untyped                 ;
+; CLK9_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK8_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK7_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK6_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK5_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK4_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK3_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK2_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK1_DUTY_CYCLE               ; 50                    ; Untyped                 ;
+; CLK0_DUTY_CYCLE               ; 50                    ; Signed Integer          ;
+; CLK9_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK8_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK7_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK6_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK5_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK4_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK3_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK2_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK1_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK0_USE_EVEN_COUNTER_MODE    ; OFF                   ; Untyped                 ;
+; CLK9_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK8_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK7_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK6_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK5_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK4_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK3_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK2_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK1_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; CLK0_USE_EVEN_COUNTER_VALUE   ; OFF                   ; Untyped                 ;
+; LOCK_WINDOW_UI                ;  0.05                 ; Untyped                 ;
+; LOCK_WINDOW_UI_BITS           ; UNUSED                ; Untyped                 ;
+; VCO_RANGE_DETECTOR_LOW_BITS   ; UNUSED                ; Untyped                 ;
+; VCO_RANGE_DETECTOR_HIGH_BITS  ; UNUSED                ; Untyped                 ;
+; DPA_MULTIPLY_BY               ; 0                     ; Untyped                 ;
+; DPA_DIVIDE_BY                 ; 1                     ; Untyped                 ;
+; DPA_DIVIDER                   ; 0                     ; Untyped                 ;
+; EXTCLK3_MULTIPLY_BY           ; 1                     ; Untyped                 ;
+; EXTCLK2_MULTIPLY_BY           ; 1                     ; Untyped                 ;
+; EXTCLK1_MULTIPLY_BY           ; 1                     ; Untyped                 ;
+; EXTCLK0_MULTIPLY_BY           ; 1                     ; Untyped                 ;
+; EXTCLK3_DIVIDE_BY             ; 1                     ; Untyped                 ;
+; EXTCLK2_DIVIDE_BY             ; 1                     ; Untyped                 ;
+; EXTCLK1_DIVIDE_BY             ; 1                     ; Untyped                 ;
+; EXTCLK0_DIVIDE_BY             ; 1                     ; Untyped                 ;
+; EXTCLK3_PHASE_SHIFT           ; 0                     ; Untyped                 ;
+; EXTCLK2_PHASE_SHIFT           ; 0                     ; Untyped                 ;
+; EXTCLK1_PHASE_SHIFT           ; 0                     ; Untyped                 ;
+; EXTCLK0_PHASE_SHIFT           ; 0                     ; Untyped                 ;
+; EXTCLK3_TIME_DELAY            ; 0                     ; Untyped                 ;
+; EXTCLK2_TIME_DELAY            ; 0                     ; Untyped                 ;
+; EXTCLK1_TIME_DELAY            ; 0                     ; Untyped                 ;
+; EXTCLK0_TIME_DELAY            ; 0                     ; Untyped                 ;
+; EXTCLK3_DUTY_CYCLE            ; 50                    ; Untyped                 ;
+; EXTCLK2_DUTY_CYCLE            ; 50                    ; Untyped                 ;
+; EXTCLK1_DUTY_CYCLE            ; 50                    ; Untyped                 ;
+; EXTCLK0_DUTY_CYCLE            ; 50                    ; Untyped                 ;
+; VCO_MULTIPLY_BY               ; 0                     ; Untyped                 ;
+; VCO_DIVIDE_BY                 ; 0                     ; Untyped                 ;
+; SCLKOUT0_PHASE_SHIFT          ; 0                     ; Untyped                 ;
+; SCLKOUT1_PHASE_SHIFT          ; 0                     ; Untyped                 ;
+; VCO_MIN                       ; 0                     ; Untyped                 ;
+; VCO_MAX                       ; 0                     ; Untyped                 ;
+; VCO_CENTER                    ; 0                     ; Untyped                 ;
+; PFD_MIN                       ; 0                     ; Untyped                 ;
+; PFD_MAX                       ; 0                     ; Untyped                 ;
+; M_INITIAL                     ; 0                     ; Untyped                 ;
+; M                             ; 0                     ; Untyped                 ;
+; N                             ; 1                     ; Untyped                 ;
+; M2                            ; 1                     ; Untyped                 ;
+; N2                            ; 1                     ; Untyped                 ;
+; SS                            ; 1                     ; Untyped                 ;
+; C0_HIGH                       ; 0                     ; Untyped                 ;
+; C1_HIGH                       ; 0                     ; Untyped                 ;
+; C2_HIGH                       ; 0                     ; Untyped                 ;
+; C3_HIGH                       ; 0                     ; Untyped                 ;
+; C4_HIGH                       ; 0                     ; Untyped                 ;
+; C5_HIGH                       ; 0                     ; Untyped                 ;
+; C6_HIGH                       ; 0                     ; Untyped                 ;
+; C7_HIGH                       ; 0                     ; Untyped                 ;
+; C8_HIGH                       ; 0                     ; Untyped                 ;
+; C9_HIGH                       ; 0                     ; Untyped                 ;
+; C0_LOW                        ; 0                     ; Untyped                 ;
+; C1_LOW                        ; 0                     ; Untyped                 ;
+; C2_LOW                        ; 0                     ; Untyped                 ;
+; C3_LOW                        ; 0                     ; Untyped                 ;
+; C4_LOW                        ; 0                     ; Untyped                 ;
+; C5_LOW                        ; 0                     ; Untyped                 ;
+; C6_LOW                        ; 0                     ; Untyped                 ;
+; C7_LOW                        ; 0                     ; Untyped                 ;
+; C8_LOW                        ; 0                     ; Untyped                 ;
+; C9_LOW                        ; 0                     ; Untyped                 ;
+; C0_INITIAL                    ; 0                     ; Untyped                 ;
+; C1_INITIAL                    ; 0                     ; Untyped                 ;
+; C2_INITIAL                    ; 0                     ; Untyped                 ;
+; C3_INITIAL                    ; 0                     ; Untyped                 ;
+; C4_INITIAL                    ; 0                     ; Untyped                 ;
+; C5_INITIAL                    ; 0                     ; Untyped                 ;
+; C6_INITIAL                    ; 0                     ; Untyped                 ;
+; C7_INITIAL                    ; 0                     ; Untyped                 ;
+; C8_INITIAL                    ; 0                     ; Untyped                 ;
+; C9_INITIAL                    ; 0                     ; Untyped                 ;
+; C0_MODE                       ; BYPASS                ; Untyped                 ;
+; C1_MODE                       ; BYPASS                ; Untyped                 ;
+; C2_MODE                       ; BYPASS                ; Untyped                 ;
+; C3_MODE                       ; BYPASS                ; Untyped                 ;
+; C4_MODE                       ; BYPASS                ; Untyped                 ;
+; C5_MODE                       ; BYPASS                ; Untyped                 ;
+; C6_MODE                       ; BYPASS                ; Untyped                 ;
+; C7_MODE                       ; BYPASS                ; Untyped                 ;
+; C8_MODE                       ; BYPASS                ; Untyped                 ;
+; C9_MODE                       ; BYPASS                ; Untyped                 ;
+; C0_PH                         ; 0                     ; Untyped                 ;
+; C1_PH                         ; 0                     ; Untyped                 ;
+; C2_PH                         ; 0                     ; Untyped                 ;
+; C3_PH                         ; 0                     ; Untyped                 ;
+; C4_PH                         ; 0                     ; Untyped                 ;
+; C5_PH                         ; 0                     ; Untyped                 ;
+; C6_PH                         ; 0                     ; Untyped                 ;
+; C7_PH                         ; 0                     ; Untyped                 ;
+; C8_PH                         ; 0                     ; Untyped                 ;
+; C9_PH                         ; 0                     ; Untyped                 ;
+; L0_HIGH                       ; 1                     ; Untyped                 ;
+; L1_HIGH                       ; 1                     ; Untyped                 ;
+; G0_HIGH                       ; 1                     ; Untyped                 ;
+; G1_HIGH                       ; 1                     ; Untyped                 ;
+; G2_HIGH                       ; 1                     ; Untyped                 ;
+; G3_HIGH                       ; 1                     ; Untyped                 ;
+; E0_HIGH                       ; 1                     ; Untyped                 ;
+; E1_HIGH                       ; 1                     ; Untyped                 ;
+; E2_HIGH                       ; 1                     ; Untyped                 ;
+; E3_HIGH                       ; 1                     ; Untyped                 ;
+; L0_LOW                        ; 1                     ; Untyped                 ;
+; L1_LOW                        ; 1                     ; Untyped                 ;
+; G0_LOW                        ; 1                     ; Untyped                 ;
+; G1_LOW                        ; 1                     ; Untyped                 ;
+; G2_LOW                        ; 1                     ; Untyped                 ;
+; G3_LOW                        ; 1                     ; Untyped                 ;
+; E0_LOW                        ; 1                     ; Untyped                 ;
+; E1_LOW                        ; 1                     ; Untyped                 ;
+; E2_LOW                        ; 1                     ; Untyped                 ;
+; E3_LOW                        ; 1                     ; Untyped                 ;
+; L0_INITIAL                    ; 1                     ; Untyped                 ;
+; L1_INITIAL                    ; 1                     ; Untyped                 ;
+; G0_INITIAL                    ; 1                     ; Untyped                 ;
+; G1_INITIAL                    ; 1                     ; Untyped                 ;
+; G2_INITIAL                    ; 1                     ; Untyped                 ;
+; G3_INITIAL                    ; 1                     ; Untyped                 ;
+; E0_INITIAL                    ; 1                     ; Untyped                 ;
+; E1_INITIAL                    ; 1                     ; Untyped                 ;
+; E2_INITIAL                    ; 1                     ; Untyped                 ;
+; E3_INITIAL                    ; 1                     ; Untyped                 ;
+; L0_MODE                       ; BYPASS                ; Untyped                 ;
+; L1_MODE                       ; BYPASS                ; Untyped                 ;
+; G0_MODE                       ; BYPASS                ; Untyped                 ;
+; G1_MODE                       ; BYPASS                ; Untyped                 ;
+; G2_MODE                       ; BYPASS                ; Untyped                 ;
+; G3_MODE                       ; BYPASS                ; Untyped                 ;
+; E0_MODE                       ; BYPASS                ; Untyped                 ;
+; E1_MODE                       ; BYPASS                ; Untyped                 ;
+; E2_MODE                       ; BYPASS                ; Untyped                 ;
+; E3_MODE                       ; BYPASS                ; Untyped                 ;
+; L0_PH                         ; 0                     ; Untyped                 ;
+; L1_PH                         ; 0                     ; Untyped                 ;
+; G0_PH                         ; 0                     ; Untyped                 ;
+; G1_PH                         ; 0                     ; Untyped                 ;
+; G2_PH                         ; 0                     ; Untyped                 ;
+; G3_PH                         ; 0                     ; Untyped                 ;
+; E0_PH                         ; 0                     ; Untyped                 ;
+; E1_PH                         ; 0                     ; Untyped                 ;
+; E2_PH                         ; 0                     ; Untyped                 ;
+; E3_PH                         ; 0                     ; Untyped                 ;
+; M_PH                          ; 0                     ; Untyped                 ;
+; C1_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; C2_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; C3_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; C4_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; C5_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; C6_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; C7_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; C8_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; C9_USE_CASC_IN                ; OFF                   ; Untyped                 ;
+; CLK0_COUNTER                  ; G0                    ; Untyped                 ;
+; CLK1_COUNTER                  ; G0                    ; Untyped                 ;
+; CLK2_COUNTER                  ; G0                    ; Untyped                 ;
+; CLK3_COUNTER                  ; G0                    ; Untyped                 ;
+; CLK4_COUNTER                  ; G0                    ; Untyped                 ;
+; CLK5_COUNTER                  ; G0                    ; Untyped                 ;
+; CLK6_COUNTER                  ; E0                    ; Untyped                 ;
+; CLK7_COUNTER                  ; E1                    ; Untyped                 ;
+; CLK8_COUNTER                  ; E2                    ; Untyped                 ;
+; CLK9_COUNTER                  ; E3                    ; Untyped                 ;
+; L0_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; L1_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; G0_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; G1_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; G2_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; G3_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; E0_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; E1_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; E2_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; E3_TIME_DELAY                 ; 0                     ; Untyped                 ;
+; M_TIME_DELAY                  ; 0                     ; Untyped                 ;
+; N_TIME_DELAY                  ; 0                     ; Untyped                 ;
+; EXTCLK3_COUNTER               ; E3                    ; Untyped                 ;
+; EXTCLK2_COUNTER               ; E2                    ; Untyped                 ;
+; EXTCLK1_COUNTER               ; E1                    ; Untyped                 ;
+; EXTCLK0_COUNTER               ; E0                    ; Untyped                 ;
+; ENABLE0_COUNTER               ; L0                    ; Untyped                 ;
+; ENABLE1_COUNTER               ; L0                    ; Untyped                 ;
+; CHARGE_PUMP_CURRENT           ; 2                     ; Untyped                 ;
+; LOOP_FILTER_R                 ;  1.000000             ; Untyped                 ;
+; LOOP_FILTER_C                 ; 5                     ; Untyped                 ;
+; CHARGE_PUMP_CURRENT_BITS      ; 9999                  ; Untyped                 ;
+; LOOP_FILTER_R_BITS            ; 9999                  ; Untyped                 ;
+; LOOP_FILTER_C_BITS            ; 9999                  ; Untyped                 ;
+; VCO_POST_SCALE                ; 0                     ; Untyped                 ;
+; CLK2_OUTPUT_FREQUENCY         ; 0                     ; Untyped                 ;
+; CLK1_OUTPUT_FREQUENCY         ; 0                     ; Untyped                 ;
+; CLK0_OUTPUT_FREQUENCY         ; 0                     ; Untyped                 ;
+; INTENDED_DEVICE_FAMILY        ; Cyclone IV E          ; Untyped                 ;
+; PORT_CLKENA0                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKENA1                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKENA2                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKENA3                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKENA4                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKENA5                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_EXTCLKENA0               ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_EXTCLKENA1               ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_EXTCLKENA2               ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_EXTCLKENA3               ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_EXTCLK0                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_EXTCLK1                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_EXTCLK2                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_EXTCLK3                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKBAD0                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKBAD1                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK0                     ; PORT_USED             ; Untyped                 ;
+; PORT_CLK1                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK2                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK3                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK4                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK5                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK6                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK7                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK8                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLK9                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCANDATA                 ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCANDATAOUT              ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCANDONE                 ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCLKOUT1                 ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_SCLKOUT0                 ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_ACTIVECLOCK              ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKLOSS                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_INCLK1                   ; PORT_UNUSED           ; Untyped                 ;
+; PORT_INCLK0                   ; PORT_USED             ; Untyped                 ;
+; PORT_FBIN                     ; PORT_UNUSED           ; Untyped                 ;
+; PORT_PLLENA                   ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CLKSWITCH                ; PORT_UNUSED           ; Untyped                 ;
+; PORT_ARESET                   ; PORT_UNUSED           ; Untyped                 ;
+; PORT_PFDENA                   ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCANCLK                  ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCANACLR                 ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCANREAD                 ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCANWRITE                ; PORT_UNUSED           ; Untyped                 ;
+; PORT_ENABLE0                  ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_ENABLE1                  ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_LOCKED                   ; PORT_UNUSED           ; Untyped                 ;
+; PORT_CONFIGUPDATE             ; PORT_UNUSED           ; Untyped                 ;
+; PORT_FBOUT                    ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_PHASEDONE                ; PORT_UNUSED           ; Untyped                 ;
+; PORT_PHASESTEP                ; PORT_UNUSED           ; Untyped                 ;
+; PORT_PHASEUPDOWN              ; PORT_UNUSED           ; Untyped                 ;
+; PORT_SCANCLKENA               ; PORT_UNUSED           ; Untyped                 ;
+; PORT_PHASECOUNTERSELECT       ; PORT_UNUSED           ; Untyped                 ;
+; PORT_VCOOVERRANGE             ; PORT_CONNECTIVITY     ; Untyped                 ;
+; PORT_VCOUNDERRANGE            ; PORT_CONNECTIVITY     ; Untyped                 ;
+; M_TEST_SOURCE                 ; 5                     ; Untyped                 ;
+; C0_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C1_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C2_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C3_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C4_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C5_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C6_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C7_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C8_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; C9_TEST_SOURCE                ; 5                     ; Untyped                 ;
+; CBXI_PARAMETER                ; pll_altpll            ; Untyped                 ;
+; VCO_FREQUENCY_CONTROL         ; AUTO                  ; Untyped                 ;
+; VCO_PHASE_SHIFT_STEP          ; 0                     ; Untyped                 ;
+; WIDTH_CLOCK                   ; 5                     ; Signed Integer          ;
+; WIDTH_PHASECOUNTERSELECT      ; 4                     ; Untyped                 ;
+; USING_FBMIMICBIDIR_PORT       ; OFF                   ; Untyped                 ;
+; DEVICE_FAMILY                 ; Cyclone IV E          ; Untyped                 ;
+; SCAN_CHAIN_MIF_FILE           ; UNUSED                ; Untyped                 ;
+; SIM_GATE_LOCK_DEVICE_BEHAVIOR ; OFF                   ; Untyped                 ;
+; AUTO_CARRY_CHAINS             ; ON                    ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS          ; OFF                   ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS           ; ON                    ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS        ; OFF                   ; IGNORE_CASCADE          ;
++-------------------------------+-----------------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Buffer:comb_5|altsyncram:data_b_rtl_0 ;
++------------------------------------+----------------------+----------------------------+
+; Parameter Name                     ; Value                ; Type                       ;
++------------------------------------+----------------------+----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                    ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                    ;
+; WIDTH_A                            ; 1                    ; Untyped                    ;
+; WIDTHAD_A                          ; 15                   ; Untyped                    ;
+; NUMWORDS_A                         ; 22500                ; Untyped                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                    ;
+; WIDTH_B                            ; 1                    ; Untyped                    ;
+; WIDTHAD_B                          ; 15                   ; Untyped                    ;
+; NUMWORDS_B                         ; 22500                ; Untyped                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                    ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                    ;
+; BYTE_SIZE                          ; 8                    ; Untyped                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                    ;
+; INIT_FILE                          ; UNUSED               ; Untyped                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                    ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                    ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                    ;
+; CBXI_PARAMETER                     ; altsyncram_g5h1      ; Untyped                    ;
++------------------------------------+----------------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Buffer:comb_5|altsyncram:data_a_rtl_0                       ;
++------------------------------------+--------------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                                  ; Type           ;
++------------------------------------+--------------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                      ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                                     ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                    ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                                     ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                    ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                      ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                              ; Untyped        ;
+; WIDTH_A                            ; 8                                                      ; Untyped        ;
+; WIDTHAD_A                          ; 15                                                     ; Untyped        ;
+; NUMWORDS_A                         ; 22500                                                  ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                           ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                                   ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                                   ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                                   ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                                   ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                                   ; Untyped        ;
+; WIDTH_B                            ; 8                                                      ; Untyped        ;
+; WIDTHAD_B                          ; 15                                                     ; Untyped        ;
+; NUMWORDS_B                         ; 22500                                                  ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                                 ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                                 ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                                 ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                                 ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                           ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                                 ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                                   ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                                   ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                                   ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                                   ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                                   ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                                   ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                      ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                                      ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                   ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                              ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                   ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                   ; Untyped        ;
+; INIT_FILE                          ; db/Edge_detection_project.ram0_Buffer_8d723586.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                                 ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                      ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                                 ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                                 ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                                 ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                                 ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                        ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                        ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                                  ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                  ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                                      ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_umk1                                        ; Untyped        ;
++------------------------------------+--------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 2              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_g9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult2                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8            ; Untyped             ;
+; LPM_WIDTHB                                     ; 8            ; Untyped             ;
+; LPM_WIDTHP                                     ; 16           ; Untyped             ;
+; LPM_WIDTHR                                     ; 16           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING      ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 9            ; Untyped             ;
+; LPM_WIDTHB                                     ; 8            ; Untyped             ;
+; LPM_WIDTHP                                     ; 17           ; Untyped             ;
+; LPM_WIDTHR                                     ; 17           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING      ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_r9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8            ; Untyped             ;
+; LPM_WIDTHB                                     ; 8            ; Untyped             ;
+; LPM_WIDTHP                                     ; 16           ; Untyped             ;
+; LPM_WIDTHR                                     ; 16           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING      ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 11             ; Untyped                ;
+; LPM_WIDTHD             ; 10             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_dcm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                ;
+; LPM_WIDTHD             ; 9              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_4bm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; altpll Parameter Settings by Entity Instance                       ;
++-------------------------------+------------------------------------+
+; Name                          ; Value                              ;
++-------------------------------+------------------------------------+
+; Number of entity instances    ; 1                                  ;
+; Entity Instance               ; pll:comb_3|altpll:altpll_component ;
+;     -- OPERATION_MODE         ; NORMAL                             ;
+;     -- PLL_TYPE               ; AUTO                               ;
+;     -- PRIMARY_CLOCK          ; INCLK0                             ;
+;     -- INCLK0_INPUT_FREQUENCY ; 20000                              ;
+;     -- INCLK1_INPUT_FREQUENCY ; 0                                  ;
+;     -- VCO_MULTIPLY_BY        ; 0                                  ;
+;     -- VCO_DIVIDE_BY          ; 0                                  ;
++-------------------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                  ;
++-------------------------------------------+---------------------------------------+
+; Name                                      ; Value                                 ;
++-------------------------------------------+---------------------------------------+
+; Number of entity instances                ; 2                                     ;
+; Entity Instance                           ; Buffer:comb_5|altsyncram:data_b_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                             ;
+;     -- WIDTH_A                            ; 1                                     ;
+;     -- NUMWORDS_A                         ; 22500                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 1                                     ;
+;     -- NUMWORDS_B                         ; 22500                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                              ;
+; Entity Instance                           ; Buffer:comb_5|altsyncram:data_a_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                             ;
+;     -- WIDTH_A                            ; 8                                     ;
+;     -- NUMWORDS_A                         ; 22500                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                          ;
+;     -- WIDTH_B                            ; 8                                     ;
+;     -- NUMWORDS_B                         ; 22500                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                             ;
++-------------------------------------------+---------------------------------------+
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 3              ;
+; Entity Instance                       ; lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 8              ;
+;     -- LPM_WIDTHB                     ; 8              ;
+;     -- LPM_WIDTHP                     ; 16             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; YES            ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 9              ;
+;     -- LPM_WIDTHB                     ; 8              ;
+;     -- LPM_WIDTHP                     ; 17             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; YES            ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 8              ;
+;     -- LPM_WIDTHB                     ; 8              ;
+;     -- LPM_WIDTHP                     ; 16             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; YES            ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGA:comb_7"                                                                                                                                                                          ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; pixel_rgb ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Buffer:comb_5"                                                                         ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; err_w_a ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; err_w_b ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Camera:comb_4"                                                                                ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; p_data[14..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; p_data[1..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; p_data[5]      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; f_done         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 19                          ;
+; cycloneiii_ff         ; 242                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 186                         ;
+;     ENA CLR           ; 20                          ;
+;     ENA SCLR          ; 8                           ;
+;     plain             ; 24                          ;
+; cycloneiii_lcell_comb ; 631                         ;
+;     arith             ; 313                         ;
+;         2 data inputs ; 142                         ;
+;         3 data inputs ; 171                         ;
+;     normal            ; 318                         ;
+;         0 data inputs ; 20                          ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 56                          ;
+;         3 data inputs ; 67                          ;
+;         4 data inputs ; 153                         ;
+; cycloneiii_pll        ; 1                           ;
+; cycloneiii_ram_block  ; 27                          ;
+;                       ;                             ;
+; Max LUT depth         ; 9.40                        ;
+; Average LUT depth     ; 5.57                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Sun Nov 18 13:20:44 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Edge_detection_project -c Edge_detection_project
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20029): Only one processor detected - disabling parallel compilation
+Warning (10275): Verilog HDL Module Instantiation warning at main.v(127): ignored dangling comma in List of Port Connections File: /home/user/Documents/CA_project/main.v Line: 127
+Info (12021): Found 1 design units, including 1 entities, in source file main.v
+    Info (12023): Found entity 1: Edge_detection_project File: /home/user/Documents/CA_project/main.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file Buffer.v
+    Info (12023): Found entity 1: Buffer File: /home/user/Documents/CA_project/Buffer.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file pll.v
+    Info (12023): Found entity 1: pll File: /home/user/Documents/CA_project/pll.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file VGA.v
+    Info (12023): Found entity 1: VGA File: /home/user/Documents/CA_project/VGA.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file core_sobel.v
+    Info (12023): Found entity 1: core_sobel File: /home/user/Documents/CA_project/core_sobel.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file Camera.v
+    Info (12023): Found entity 1: Camera File: /home/user/Documents/CA_project/Camera.v Line: 6
+Critical Warning (10846): Verilog HDL Instantiation warning at main.v(73): instance has no name File: /home/user/Documents/CA_project/main.v Line: 73
+Critical Warning (10846): Verilog HDL Instantiation warning at main.v(84): instance has no name File: /home/user/Documents/CA_project/main.v Line: 84
+Critical Warning (10846): Verilog HDL Instantiation warning at main.v(101): instance has no name File: /home/user/Documents/CA_project/main.v Line: 101
+Critical Warning (10846): Verilog HDL Instantiation warning at main.v(113): instance has no name File: /home/user/Documents/CA_project/main.v Line: 113
+Critical Warning (10846): Verilog HDL Instantiation warning at main.v(127): instance has no name File: /home/user/Documents/CA_project/main.v Line: 127
+Info (12127): Elaborating entity "Edge_detection_project" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at main.v(150): truncated value with size 32 to match size of target (15) File: /home/user/Documents/CA_project/main.v Line: 150
+Warning (10230): Verilog HDL assignment warning at main.v(153): truncated value with size 32 to match size of target (9) File: /home/user/Documents/CA_project/main.v Line: 153
+Warning (10230): Verilog HDL assignment warning at main.v(154): truncated value with size 32 to match size of target (10) File: /home/user/Documents/CA_project/main.v Line: 154
+Warning (10230): Verilog HDL assignment warning at main.v(165): truncated value with size 32 to match size of target (15) File: /home/user/Documents/CA_project/main.v Line: 165
+Warning (10230): Verilog HDL assignment warning at main.v(166): truncated value with size 32 to match size of target (15) File: /home/user/Documents/CA_project/main.v Line: 166
+Warning (10230): Verilog HDL assignment warning at main.v(169): truncated value with size 32 to match size of target (15) File: /home/user/Documents/CA_project/main.v Line: 169
+Warning (10230): Verilog HDL assignment warning at main.v(170): truncated value with size 32 to match size of target (8) File: /home/user/Documents/CA_project/main.v Line: 170
+Warning (10230): Verilog HDL assignment warning at main.v(171): truncated value with size 32 to match size of target (8) File: /home/user/Documents/CA_project/main.v Line: 171
+Warning (10230): Verilog HDL assignment warning at main.v(178): truncated value with size 32 to match size of target (4) File: /home/user/Documents/CA_project/main.v Line: 178
+Warning (10230): Verilog HDL assignment warning at main.v(182): truncated value with size 32 to match size of target (8) File: /home/user/Documents/CA_project/main.v Line: 182
+Warning (10230): Verilog HDL assignment warning at main.v(209): truncated value with size 32 to match size of target (15) File: /home/user/Documents/CA_project/main.v Line: 209
+Info (12128): Elaborating entity "pll" for hierarchy "pll:comb_3" File: /home/user/Documents/CA_project/main.v Line: 73
+Info (12128): Elaborating entity "altpll" for hierarchy "pll:comb_3|altpll:altpll_component" File: /home/user/Documents/CA_project/pll.v Line: 90
+Info (12130): Elaborated megafunction instantiation "pll:comb_3|altpll:altpll_component" File: /home/user/Documents/CA_project/pll.v Line: 90
+Info (12133): Instantiated megafunction "pll:comb_3|altpll:altpll_component" with the following parameter: File: /home/user/Documents/CA_project/pll.v Line: 90
+    Info (12134): Parameter "bandwidth_type" = "AUTO"
+    Info (12134): Parameter "clk0_divide_by" = "2"
+    Info (12134): Parameter "clk0_duty_cycle" = "50"
+    Info (12134): Parameter "clk0_multiply_by" = "1"
+    Info (12134): Parameter "clk0_phase_shift" = "0"
+    Info (12134): Parameter "compensate_clock" = "CLK0"
+    Info (12134): Parameter "inclk0_input_frequency" = "20000"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "CBX_MODULE_PREFIX=pll"
+    Info (12134): Parameter "lpm_type" = "altpll"
+    Info (12134): Parameter "operation_mode" = "NORMAL"
+    Info (12134): Parameter "pll_type" = "AUTO"
+    Info (12134): Parameter "port_activeclock" = "PORT_UNUSED"
+    Info (12134): Parameter "port_areset" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkbad0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkbad1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkloss" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkswitch" = "PORT_UNUSED"
+    Info (12134): Parameter "port_configupdate" = "PORT_UNUSED"
+    Info (12134): Parameter "port_fbin" = "PORT_UNUSED"
+    Info (12134): Parameter "port_inclk0" = "PORT_USED"
+    Info (12134): Parameter "port_inclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_locked" = "PORT_UNUSED"
+    Info (12134): Parameter "port_pfdena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasecounterselect" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasedone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasestep" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phaseupdown" = "PORT_UNUSED"
+    Info (12134): Parameter "port_pllena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanaclr" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclk" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclkena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandata" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandataout" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanread" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanwrite" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk0" = "PORT_USED"
+    Info (12134): Parameter "port_clk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
+    Info (12134): Parameter "width_clock" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
+    Info (12023): Found entity 1: pll_altpll File: /home/user/Documents/CA_project/db/pll_altpll.v Line: 29
+Info (12128): Elaborating entity "pll_altpll" for hierarchy "pll:comb_3|altpll:altpll_component|pll_altpll:auto_generated" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
+Info (12128): Elaborating entity "Camera" for hierarchy "Camera:comb_4" File: /home/user/Documents/CA_project/main.v Line: 84
+Info (12128): Elaborating entity "Buffer" for hierarchy "Buffer:comb_5" File: /home/user/Documents/CA_project/main.v Line: 101
+Info (12128): Elaborating entity "core_sobel" for hierarchy "core_sobel:comb_6" File: /home/user/Documents/CA_project/main.v Line: 113
+Warning (10230): Verilog HDL assignment warning at core_sobel.v(14): truncated value with size 32 to match size of target (11) File: /home/user/Documents/CA_project/core_sobel.v Line: 14
+Warning (10230): Verilog HDL assignment warning at core_sobel.v(15): truncated value with size 32 to match size of target (11) File: /home/user/Documents/CA_project/core_sobel.v Line: 15
+Info (12128): Elaborating entity "VGA" for hierarchy "VGA:comb_7" File: /home/user/Documents/CA_project/main.v Line: 127
+Warning (276027): Inferred dual-clock RAM node "Buffer:comb_5|data_a_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "Buffer:comb_5|data_b_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 1
+        Info (286033): Parameter WIDTHAD_A set to 15
+        Info (286033): Parameter NUMWORDS_A set to 22500
+        Info (286033): Parameter WIDTH_B set to 1
+        Info (286033): Parameter WIDTHAD_B set to 15
+        Info (286033): Parameter NUMWORDS_B set to 22500
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "Buffer:comb_5|data_a_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 15
+        Info (286033): Parameter NUMWORDS_A set to 22500
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 15
+        Info (286033): Parameter NUMWORDS_B set to 22500
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/Edge_detection_project.ram0_Buffer_8d723586.hdl.mif
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: /home/user/Documents/CA_project/main.v Line: 164
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult2" File: /home/user/Documents/CA_project/main.v Line: 209
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: /home/user/Documents/CA_project/main.v Line: 150
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: /home/user/Documents/CA_project/main.v Line: 171
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult1" File: /home/user/Documents/CA_project/main.v Line: 169
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: /home/user/Documents/CA_project/main.v Line: 154
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/user/Documents/CA_project/main.v Line: 153
+Info (12130): Elaborated megafunction instantiation "Buffer:comb_5|altsyncram:data_b_rtl_0"
+Info (12133): Instantiated megafunction "Buffer:comb_5|altsyncram:data_b_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "1"
+    Info (12134): Parameter "WIDTHAD_A" = "15"
+    Info (12134): Parameter "NUMWORDS_A" = "22500"
+    Info (12134): Parameter "WIDTH_B" = "1"
+    Info (12134): Parameter "WIDTHAD_B" = "15"
+    Info (12134): Parameter "NUMWORDS_B" = "22500"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_g5h1.tdf
+    Info (12023): Found entity 1: altsyncram_g5h1 File: /home/user/Documents/CA_project/db/altsyncram_g5h1.tdf Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_lsa.tdf
+    Info (12023): Found entity 1: decode_lsa File: /home/user/Documents/CA_project/db/decode_lsa.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_umb.tdf
+    Info (12023): Found entity 1: mux_umb File: /home/user/Documents/CA_project/db/mux_umb.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "Buffer:comb_5|altsyncram:data_a_rtl_0"
+Info (12133): Instantiated megafunction "Buffer:comb_5|altsyncram:data_a_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "15"
+    Info (12134): Parameter "NUMWORDS_A" = "22500"
+    Info (12134): Parameter "WIDTH_B" = "8"
+    Info (12134): Parameter "WIDTHAD_B" = "15"
+    Info (12134): Parameter "NUMWORDS_B" = "22500"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/Edge_detection_project.ram0_Buffer_8d723586.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_umk1.tdf
+    Info (12023): Found entity 1: altsyncram_umk1 File: /home/user/Documents/CA_project/db/altsyncram_umk1.tdf Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_e8a.tdf
+    Info (12023): Found entity 1: decode_e8a File: /home/user/Documents/CA_project/db/decode_e8a.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_5nb.tdf
+    Info (12023): Found entity 1: mux_5nb File: /home/user/Documents/CA_project/db/mux_5nb.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2" File: /home/user/Documents/CA_project/main.v Line: 164
+Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter: File: /home/user/Documents/CA_project/main.v Line: 164
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "2"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_g9m.tdf
+    Info (12023): Found entity 1: lpm_divide_g9m File: /home/user/Documents/CA_project/db/lpm_divide_g9m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_5kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_5kh File: /home/user/Documents/CA_project/db/sign_div_unsign_5kh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_u3f.tdf
+    Info (12023): Found entity 1: alt_u_div_u3f File: /home/user/Documents/CA_project/db/alt_u_div_u3f.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: /home/user/Documents/CA_project/db/add_sub_7pc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: /home/user/Documents/CA_project/db/add_sub_8pc.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult2" File: /home/user/Documents/CA_project/main.v Line: 209
+Info (12133): Instantiated megafunction "lpm_mult:Mult2" with the following parameter: File: /home/user/Documents/CA_project/main.v Line: 209
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult2|multcore:mult_core", which is child of megafunction instantiation "lpm_mult:Mult2" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 308
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult2|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "lpm_mult:Mult2" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/multcore.tdf Line: 228
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult2|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "lpm_mult:Mult2" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lgh.tdf
+    Info (12023): Found entity 1: add_sub_lgh File: /home/user/Documents/CA_project/db/add_sub_lgh.tdf Line: 22
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult2|altshift:external_latency_ffs", which is child of megafunction instantiation "lpm_mult:Mult2" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 351
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: /home/user/Documents/CA_project/main.v Line: 150
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: /home/user/Documents/CA_project/main.v Line: 150
+    Info (12134): Parameter "LPM_WIDTHA" = "9"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "17"
+    Info (12134): Parameter "LPM_WIDTHR" = "17"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "lpm_mult:Mult0" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 308
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "lpm_mult:Mult0" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/multcore.tdf Line: 228
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add", which is child of megafunction instantiation "lpm_mult:Mult0" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 138
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]", which is child of megafunction instantiation "lpm_mult:Mult0" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_pgh.tdf
+    Info (12023): Found entity 1: add_sub_pgh File: /home/user/Documents/CA_project/db/add_sub_pgh.tdf Line: 22
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "lpm_mult:Mult0" File: /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 351
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod3" File: /home/user/Documents/CA_project/main.v Line: 171
+Info (12133): Instantiated megafunction "lpm_divide:Mod3" with the following parameter: File: /home/user/Documents/CA_project/main.v Line: 171
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_r9m.tdf
+    Info (12023): Found entity 1: lpm_divide_r9m File: /home/user/Documents/CA_project/db/lpm_divide_r9m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_gkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_gkh File: /home/user/Documents/CA_project/db/sign_div_unsign_gkh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_k4f.tdf
+    Info (12023): Found entity 1: alt_u_div_k4f File: /home/user/Documents/CA_project/db/alt_u_div_k4f.tdf Line: 26
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: /home/user/Documents/CA_project/main.v Line: 154
+Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: /home/user/Documents/CA_project/main.v Line: 154
+    Info (12134): Parameter "LPM_WIDTHN" = "11"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_dcm.tdf
+    Info (12023): Found entity 1: lpm_divide_dcm File: /home/user/Documents/CA_project/db/lpm_divide_dcm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_2nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_2nh File: /home/user/Documents/CA_project/db/sign_div_unsign_2nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o9f.tdf
+    Info (12023): Found entity 1: alt_u_div_o9f File: /home/user/Documents/CA_project/db/alt_u_div_o9f.tdf Line: 26
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home/user/Documents/CA_project/main.v Line: 153
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home/user/Documents/CA_project/main.v Line: 153
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "9"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_4bm.tdf
+    Info (12023): Found entity 1: lpm_divide_4bm File: /home/user/Documents/CA_project/db/lpm_divide_4bm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_plh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_plh File: /home/user/Documents/CA_project/db/sign_div_unsign_plh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_67f.tdf
+    Info (12023): Found entity 1: alt_u_div_67f File: /home/user/Documents/CA_project/db/alt_u_div_67f.tdf Line: 26
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_r9m:auto_generated|sign_div_unsign_gkh:divider|alt_u_div_k4f:divider|add_sub_8_result_int[0]~18" File: /home/user/Documents/CA_project/db/alt_u_div_k4f.tdf Line: 66
+Info (144001): Generated suppressed messages file /home/user/Documents/CA_project/output_files/Edge_detection_project.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "cam_data_wires[5]" File: /home/user/Documents/CA_project/main.v Line: 10
+Info (21057): Implemented 807 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 6 output pins
+    Info (21061): Implemented 760 logic cells
+    Info (21064): Implemented 27 RAM segments
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 1024 megabytes
+    Info: Processing ended: Sun Nov 18 13:21:17 2018
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/user/Documents/CA_project/output_files/Edge_detection_project.map.smsg.
+
+

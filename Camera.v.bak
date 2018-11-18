@@ -1,0 +1,42 @@
+module Camera(
+	input clock,
+	input vsync,
+	input href,
+	input [7:0] data_wires,
+	output reg p_valid = 0,
+	output reg [15:0] p_data =0,
+	output reg f_done = 0
+    );
+	 
+	reg state_flag = 0;
+   reg p_half = 0;
+	
+	
+	always@(posedge clock)
+	begin 
+	
+	case(state_flag)
+	
+		0: begin //wait for VSYNC falling edge signal to start the 	
+			state_flag <= (!vsync) ? 1'b1 : 1'b0;
+			f_done <= 0;
+			p_half <= 0;
+		end
+	
+		1: begin //The state of recieving the pixels half by half
+			state_flag <= vsync ? 1'b0 : 1'b1;	//Rising edge of VSYNC indicate that the process of reading finished
+			f_done <= vsync ? 1'b1 : 1'b0;
+			p_valid <= (href && p_half) ? 1'b1 : 1'b0;
+			if (href) begin
+				 p_half <= ~ p_half;
+				 if (p_half) p_data[7:0] <= data_wires;
+				 else p_data[15:8] <= data_wires;
+			end
+		end
+	
+	
+	
+	endcase
+	end
+	
+endmodule

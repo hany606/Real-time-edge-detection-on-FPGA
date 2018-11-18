@@ -1,0 +1,77 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "VGA_red",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_green",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_blue",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_hsync",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_vsync",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50",
+					"strict" : false
+				},
+				{
+					"name" : "button",
+					"strict" : false
+				},
+				{
+					"name" : "cam_href",
+					"strict" : false
+				},
+				{
+					"name" : "cam_clock",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data_wires[2]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data_wires[1]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data_wires[4]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data_wires[3]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data_wires[0]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data_wires[7]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data_wires[6]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_vsync",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
